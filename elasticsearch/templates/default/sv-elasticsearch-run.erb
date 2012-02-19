@@ -1,0 +1,10 @@
+#!/bin/bash
+
+exec 2>&1
+export ES_HOME=<%= @options[:home_dir] %>
+export ES_CONF_DIR=<%= @options[:conf_dir] %>
+
+cd $ES_HOME
+exec chpst $ES_HOME/bin/elasticsearch \
+  -Des.config=$ES_CONF_DIR/elasticsearch.yml \
+    -f
