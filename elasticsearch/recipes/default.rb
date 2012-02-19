@@ -8,7 +8,6 @@
 #
 
 package 'openjdk-6-jre-headless'
-package 'runit'
 
 install_from_release(:elasticsearch) do
   release_url   node[:elasticsearch][:release_url]
