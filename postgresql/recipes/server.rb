@@ -5,7 +5,7 @@
 
 include_recipe "postgresql::client"
 
-package "postgresql" do
+package "postgresql-9.1" do
   provider Chef::Provider::Package::BackportsApt
 end
 
