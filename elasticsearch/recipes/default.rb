@@ -29,6 +29,10 @@ template '/etc/init.d/elasticsearch' do
   group 'root'
 end
 
+directory node[:elasticsearch][:conf_dir] do
+  mode "0755"
+end
+
 template "#{node[:elasticsearch][:conf_dir]}/elasticsearch.yml" do
   owner  "root"
   group  "root"
