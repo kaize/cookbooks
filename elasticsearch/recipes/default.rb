@@ -15,7 +15,7 @@ install_from_release(:elasticsearch) do
   version       node[:elasticsearch][:version]
   action        [ :install ]
   has_binaries  [ 'bin/elasticsearch' ]
-  not_if{ ::File.exists?("#{node[:elasticsearch][:home_dir]}/bin/elasticsearch") }
+  not_if{ ::File.exists?("#{node[:elasticsearch][:home_dir]}/bin/elasticsearch") && !node[:elasticsearch][:force_compile]}
 end
 
 runit_service "elasticsearch" do
