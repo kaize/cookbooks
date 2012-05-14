@@ -8,8 +8,14 @@ apt_repository "mongodb" do
   notifies :run, resources(:execute => "apt-get-update"), :immediately
 end
 
-package 'mongodb-10gen' do
-  options "--force-yes"
+if node[:mongodb][:version] && node[:mongodb][:version].match('^1.8')
+  package 'mongodb18-10gen' do
+    options "--force-yes"
+  end
+else
+  package 'mongodb-10gen' do
+    options "--force-yes"
+  end
 end
 
 # runs /etc/init.d/example_service (start|stop|restart), etc.
