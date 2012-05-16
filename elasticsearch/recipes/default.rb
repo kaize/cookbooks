@@ -22,11 +22,13 @@ runit_service "elasticsearch" do
   options node[:elasticsearch]
 end
 
-template '/etc/init.d/elasticsearch' do
-  source 'elasticsearch.init.erb'
-  mode 0755
-  owner 'root'
-  group 'root'
+if node[:elasticsearch][:init_d]
+  template '/etc/init.d/elasticsearch' do
+    source 'elasticsearch.init.erb'
+    mode 0755
+    owner 'root'
+    group 'root'
+  end
 end
 
 directory node[:elasticsearch][:conf_dir] do
