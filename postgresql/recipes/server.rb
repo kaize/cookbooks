@@ -5,11 +5,11 @@
 
 include_recipe "postgresql::client"
 
-package "postgresql-9.1" do
+backports_apt_package "postgresql-9.1" do
   provider Chef::Provider::Package::BackportsApt
 end
 
-package "postgresql-server-dev-9.1" do
+backports_apt_package "postgresql-server-dev-9.1" do
   provider Chef::Provider::Package::BackportsApt
 end
 

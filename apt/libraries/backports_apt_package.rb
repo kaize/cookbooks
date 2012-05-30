@@ -7,7 +7,7 @@
 # Drop this file into cookbook's libraries/ dir.
 
 require 'chef/provider/package/apt'
-require 'chef/resource/package'
+require 'chef/resource/apt_package'
 
 class Chef
 
@@ -38,7 +38,7 @@ class Chef
   end
 
   class Resource
-    class BackportsAptPackage < Chef::Resource::Package
+    class BackportsAptPackage < Chef::Resource::AptPackage
       def initialize(name, run_context=nil)
         super
         @resource_name = :backports_apt_package
