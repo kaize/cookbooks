@@ -10,6 +10,8 @@
 #TODO handle errors
 raise 'where is users?' if node[:users].empty?
 
+package 'gcc'
+package 'make'
 gem_package 'ruby-shadow'
 
 def create_user(login, ssh_keys = nil)
