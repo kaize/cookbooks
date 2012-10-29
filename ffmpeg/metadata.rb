@@ -10,8 +10,8 @@ version          "0.2.1"
 end
 
 depends "yasm"
-depends "x264", "~> 0.3.0"
-depends "libvpx", "~> 0.2.0"
+depends "x264"#, "~> 0.3.0"
+depends "libvpx"#, "~> 0.2.0"
 depends "build-essential"
 depends "git"
 
