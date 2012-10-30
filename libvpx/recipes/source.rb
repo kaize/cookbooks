@@ -50,5 +50,5 @@ bash "compile_libvpx" do
     ./configure --prefix=#{node[:libvpx][:prefix]}
     make clean && make && make install
   EOH
-  creates "#{node[:libvpx][:prefix]}/bin/vpxenc"
+  #creates "#{node[:libvpx][:prefix]}/bin/vpxenc"
 end

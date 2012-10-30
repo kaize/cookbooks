@@ -47,5 +47,5 @@ bash "compile_yasm" do
 		./configure --prefix=#{node[:yasm][:prefix]} #{node[:yasm][:compile_flags].join(' ')}
 		make clean && make && make install
 	EOH
-	creates "#{creates_yasm}"
+	#creates "#{creates_yasm}"
 end
