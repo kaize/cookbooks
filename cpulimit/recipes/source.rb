@@ -9,15 +9,11 @@ end
 
 creates_cpulimit = "#{node[:cpulimit][:prefix]}/bin/cpulimit"
 
-file "#{creates_cpulimit}" do
-	action :nothing
-end
-
 git "#{Chef::Config[:file_cache_path]}/cpulimit" do
 	repository node[:cpulimit][:git_repository]
 	reference node[:cpulimit][:git_revision]
 	action :sync
-	notifies :delete, "file[#{creates_cpulimit}]"
+  notifies :run, "bash[compile_cpulimit]"
 end
 
 bash "compile_cpulimit" do
